@@ -415,13 +415,6 @@ namespace winFormsCalculator
 			return textBox1->Text->Length == 1 && textBox1->Text->Contains("0");
 		}
 
-		void clearRemainderZero()
-		{
-
-		}
-
-
-
 		/************************************************************************
 				Section for Buttons that add entries into the textBox1 field
 

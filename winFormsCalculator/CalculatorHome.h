@@ -759,57 +759,57 @@ namespace winFormsCalculator
 					EnterButton->PerformClick();
 					break;
 				}
-				case (int)Keys::NumPad0:
+				case (int)Keys::NumPad0: case (int)Keys::D0:
 				{
 					Num0Button->PerformClick();
 					break;
 				}
-				case (int)Keys::NumPad1:
+				case (int)Keys::NumPad1: case (int)Keys::D1:
 				{
 					Num1Button->PerformClick();
 					break;
 				}
-				case (int)Keys::NumPad2:
+				case (int)Keys::NumPad2: case (int)Keys::D2:
 				{
 					Num2Button->PerformClick();
 					break;
 				}
-				case (int)Keys::NumPad3:
+				case (int)Keys::NumPad3: case (int)Keys::D3:
 				{
 					Num3Button->PerformClick();
 					break;
 				}
-				case (int)Keys::NumPad4:
+				case (int)Keys::NumPad4: case (int)Keys::D4:
 				{
 					Num4Button->PerformClick();
 					break;
 				}
-				case (int)Keys::NumPad5:
+				case (int)Keys::NumPad5: case (int)Keys::D5:
 				{
 					Num5Button->PerformClick();
 					break;
 				}
-				case (int)Keys::NumPad6:
+				case (int)Keys::NumPad6: case (int)Keys::D6:
 				{
 					Num6Button->PerformClick();
 					break;
 				}
-				case (int)Keys::NumPad7:
+				case (int)Keys::NumPad7: case (int)Keys::D7:
 				{
 					Num7Button->PerformClick();
 					break;
 				}
-				case (int)Keys::NumPad8:
+				case (int)Keys::NumPad8: case (int)Keys::D8:
 				{
 					Num8Button->PerformClick();
 					break;
 				}
-				case (int)Keys::NumPad9:
+				case (int)Keys::NumPad9: case (int)Keys::D9:
 				{
 					Num9Button->PerformClick();
 					break;
 				}
-				case (int)Keys::Add:
+				case (int)Keys::Add:			//Dont know how to handle Shift + Key yet
 				{
 					PlusButton->PerformClick();
 					break;
@@ -819,7 +819,7 @@ namespace winFormsCalculator
 					SubtractButton->PerformClick();
 					break;
 				}
-				case (int)Keys::Divide:
+				case (int)Keys::Divide: 
 				{
 					DivideButton->PerformClick();
 					break;
@@ -829,7 +829,7 @@ namespace winFormsCalculator
 					MultiplyButton->PerformClick();
 					break;
 				}
-				case (int)Keys::Decimal:
+				case (int)Keys::Decimal: 
 				{
 					DecimalButton->PerformClick();
 					break;

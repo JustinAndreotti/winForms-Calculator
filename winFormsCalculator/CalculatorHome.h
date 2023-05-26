@@ -376,6 +376,8 @@ namespace winFormsCalculator
 			this->Controls->Add(this->textBox1);
 			this->Name = L"CalculatorHome";
 			this->Text = L"CalculatorHome";
+			this->Shown += gcnew System::EventHandler(this, &CalculatorHome::CalculatorHome_Shown);
+			this->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &CalculatorHome::CalculatorHome_KeyDown);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -391,6 +393,7 @@ namespace winFormsCalculator
 							Section for variables used
 
 		************************************************************************/
+		private:
 		bool operatorHit = false;
 		double firstEntry = 0;
 		double secondEntry = 0;
@@ -405,6 +408,7 @@ namespace winFormsCalculator
 					Section for winFormsCalculator Helper Functions
 
 		************************************************************************/
+		private:
 		void clearTextBox()
 		{
 			textBox1->Text = "";
@@ -414,6 +418,18 @@ namespace winFormsCalculator
 		{
 			return textBox1->Text->Length == 1 && textBox1->Text->Contains("0");
 		}
+
+		void clearFocus()
+		{
+			this->ActiveControl = nullptr;
+		}
+
+		void focusTextBox()
+		{
+			textBox1->Focus();
+		}
+
+
 
 		/************************************************************************
 				Section for Buttons that add entries into the textBox1 field
@@ -434,6 +450,7 @@ namespace winFormsCalculator
 
 			textBox1->Text += System::Convert::ToString(1);
 
+			clearFocus();
 		}
 
 		System::Void Num2Button_Click(System::Object^ sender, System::EventArgs^ e) 
@@ -443,6 +460,7 @@ namespace winFormsCalculator
 
 			textBox1->Text += System::Convert::ToString(2);
 
+			clearFocus();
 		}
 
 		System::Void Num3Button_Click(System::Object^ sender, System::EventArgs^ e) 
@@ -452,6 +470,7 @@ namespace winFormsCalculator
 
 			textBox1->Text += System::Convert::ToString(3);
 
+			clearFocus();
 		}
 
 		System::Void Num4Button_Click(System::Object^ sender, System::EventArgs^ e) 
@@ -460,7 +479,7 @@ namespace winFormsCalculator
 				clearTextBox();
 
 			textBox1->Text += System::Convert::ToString(4);
-
+			clearFocus();
 		}
 
 		System::Void Num5Button_Click(System::Object^ sender, System::EventArgs^ e) 
@@ -470,6 +489,7 @@ namespace winFormsCalculator
 
 			textBox1->Text += System::Convert::ToString(5);
 
+			clearFocus();
 		}
 
 		System::Void Num6Button_Click(System::Object^ sender, System::EventArgs^ e) 
@@ -479,6 +499,7 @@ namespace winFormsCalculator
 
 			textBox1->Text += System::Convert::ToString(6);
 
+			clearFocus();
 		}
 
 		System::Void Num7Button_Click(System::Object^ sender, System::EventArgs^ e) 
@@ -488,6 +509,7 @@ namespace winFormsCalculator
 
 			textBox1->Text += System::Convert::ToString(7);
 
+			clearFocus();
 		}
 
 		System::Void Num8Button_Click(System::Object^ sender, System::EventArgs^ e) 
@@ -497,6 +519,7 @@ namespace winFormsCalculator
 
 			textBox1->Text += System::Convert::ToString(8);
 
+			clearFocus();
 		}
 
 		System::Void Num9Button_Click(System::Object^ sender, System::EventArgs^ e) 
@@ -506,6 +529,7 @@ namespace winFormsCalculator
 
 			textBox1->Text += System::Convert::ToString(9);
 
+			clearFocus();
 		}
 
 		System::Void Num0Button_Click(System::Object^ sender, System::EventArgs^ e) 
@@ -515,6 +539,7 @@ namespace winFormsCalculator
 
 			textBox1->Text += System::Convert::ToString(0);
 
+			clearFocus();
 		}
 
 		System::Void DecimalButton_Click(System::Object^ sender, System::EventArgs^ e) 
@@ -525,6 +550,8 @@ namespace winFormsCalculator
 				//add a decimal to the number
 				textBox1->Text += ".";
 			}	
+
+			clearFocus();
 		}
 
 		System::Void DeleteButton_Click(System::Object^ sender, System::EventArgs^ e) 
@@ -535,6 +562,7 @@ namespace winFormsCalculator
 				textBox1->Text = textBox1->Text->Remove(textBox1->Text->Length - 1);
 			}
 			
+			clearFocus();
 		}
 
 
@@ -574,6 +602,8 @@ namespace winFormsCalculator
 					operatorHit = true;
 				}
 			}
+
+			clearFocus();
 		}
 
 		System::Void SubtractButton_Click(System::Object^ sender, System::EventArgs^ e) 
@@ -600,6 +630,8 @@ namespace winFormsCalculator
 					operatorHit = true;
 				}
 			}
+
+			clearFocus();
 		}
 
 		System::Void MultiplyButton_Click(System::Object^ sender, System::EventArgs^ e) 
@@ -618,8 +650,11 @@ namespace winFormsCalculator
 					textBox1->Text = "";
 
 					operatorHit = true;
+
 				}
 			}
+
+			clearFocus();
 		}
 
 
@@ -641,6 +676,8 @@ namespace winFormsCalculator
 					operatorHit = true;
 				}
 			}
+
+			clearFocus();
 		}
 
 
@@ -691,6 +728,8 @@ namespace winFormsCalculator
 
 				//set operatorHit to false
 				operatorHit = false;
+
+				clearFocus();
 			}
 
 		}
@@ -705,6 +744,108 @@ namespace winFormsCalculator
 			textBox1->Text = "";
 		}
 
+		private: System::Void CalculatorHome_Shown(System::Object^ sender, System::EventArgs^ e) 
+		{
+			clearFocus();
+		}
 
+		System::Void CalculatorHome_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e)
+		{
+			//Check what key was pressed
+			switch (e->KeyValue)
+			{
+				case (int)Keys::Enter:
+				{
+					EnterButton->PerformClick();
+					break;
+				}
+				case (int)Keys::NumPad0:
+				{
+					Num0Button->PerformClick();
+					break;
+				}
+				case (int)Keys::NumPad1:
+				{
+					Num1Button->PerformClick();
+					break;
+				}
+				case (int)Keys::NumPad2:
+				{
+					Num2Button->PerformClick();
+					break;
+				}
+				case (int)Keys::NumPad3:
+				{
+					Num3Button->PerformClick();
+					break;
+				}
+				case (int)Keys::NumPad4:
+				{
+					Num4Button->PerformClick();
+					break;
+				}
+				case (int)Keys::NumPad5:
+				{
+					Num5Button->PerformClick();
+					break;
+				}
+				case (int)Keys::NumPad6:
+				{
+					Num6Button->PerformClick();
+					break;
+				}
+				case (int)Keys::NumPad7:
+				{
+					Num7Button->PerformClick();
+					break;
+				}
+				case (int)Keys::NumPad8:
+				{
+					Num8Button->PerformClick();
+					break;
+				}
+				case (int)Keys::NumPad9:
+				{
+					Num9Button->PerformClick();
+					break;
+				}
+				case (int)Keys::Add:
+				{
+					PlusButton->PerformClick();
+					break;
+				}
+				case (int)Keys::Subtract:
+				{
+					SubtractButton->PerformClick();
+					break;
+				}
+				case (int)Keys::Divide:
+				{
+					DivideButton->PerformClick();
+					break;
+				}
+				case (int)Keys::Multiply:
+				{
+					MultiplyButton->PerformClick();
+					break;
+				}
+				case (int)Keys::Decimal:
+				{
+					DecimalButton->PerformClick();
+					break;
+				}
+				case (int)Keys::Delete:
+				{
+					DeleteButton->PerformClick();
+					break;
+				}
+				case (int)Keys::Escape:
+				{
+					clearButton->PerformClick();
+				}
+			}
+		}
+
+	
 	};//end header
 }//end namespace

@@ -74,6 +74,16 @@ namespace winFormsCalculator
 
 	private: System::Windows::Forms::Label^ OperatorLabel;
 	private: System::Windows::Forms::Button^ clearButton;
+	private: System::Windows::Forms::MenuStrip^ menuStrip1;
+	private: System::Windows::Forms::ToolStripMenuItem^ fileToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ exitToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ editToolStripMenuItem;
+
+
+	private: System::Windows::Forms::ToolStripMenuItem^ copyToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ pasteToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ cutToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ exitToolStripMenuItem1;
 
 
 
@@ -112,6 +122,15 @@ namespace winFormsCalculator
 			this->EnterButton = (gcnew System::Windows::Forms::Button());
 			this->OperatorLabel = (gcnew System::Windows::Forms::Label());
 			this->clearButton = (gcnew System::Windows::Forms::Button());
+			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
+			this->fileToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->exitToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->exitToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->editToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->copyToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->pasteToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->cutToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// textBox1
@@ -122,6 +141,7 @@ namespace winFormsCalculator
 			this->textBox1->Size = System::Drawing::Size(258, 45);
 			this->textBox1->TabIndex = 0;
 			this->textBox1->TextAlign = System::Windows::Forms::HorizontalAlignment::Right;
+			this->textBox1->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &CalculatorHome::textBox1_MouseClick);
 			// 
 			// DeleteButton
 			// 
@@ -349,6 +369,73 @@ namespace winFormsCalculator
 			this->clearButton->UseVisualStyleBackColor = true;
 			this->clearButton->Click += gcnew System::EventHandler(this, &CalculatorHome::clearButton_Click);
 			// 
+			// menuStrip1
+			// 
+			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+				this->fileToolStripMenuItem,
+					this->editToolStripMenuItem
+			});
+			this->menuStrip1->Location = System::Drawing::Point(0, 0);
+			this->menuStrip1->Name = L"menuStrip1";
+			this->menuStrip1->Size = System::Drawing::Size(322, 24);
+			this->menuStrip1->TabIndex = 22;
+			this->menuStrip1->Text = L"menuStrip1";
+			// 
+			// fileToolStripMenuItem
+			// 
+			this->fileToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+				this->exitToolStripMenuItem,
+					this->exitToolStripMenuItem1
+			});
+			this->fileToolStripMenuItem->Name = L"fileToolStripMenuItem";
+			this->fileToolStripMenuItem->Size = System::Drawing::Size(37, 20);
+			this->fileToolStripMenuItem->Text = L"File";
+			// 
+			// exitToolStripMenuItem
+			// 
+			this->exitToolStripMenuItem->Name = L"exitToolStripMenuItem";
+			this->exitToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->exitToolStripMenuItem->Text = L"Help";
+			this->exitToolStripMenuItem->Click += gcnew System::EventHandler(this, &CalculatorHome::exitToolStripMenuItem_Click);
+			// 
+			// exitToolStripMenuItem1
+			// 
+			this->exitToolStripMenuItem1->Name = L"exitToolStripMenuItem1";
+			this->exitToolStripMenuItem1->Size = System::Drawing::Size(180, 22);
+			this->exitToolStripMenuItem1->Text = L"Exit";
+			this->exitToolStripMenuItem1->Click += gcnew System::EventHandler(this, &CalculatorHome::exitToolStripMenuItem1_Click);
+			// 
+			// editToolStripMenuItem
+			// 
+			this->editToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
+				this->copyToolStripMenuItem,
+					this->pasteToolStripMenuItem, this->cutToolStripMenuItem
+			});
+			this->editToolStripMenuItem->Name = L"editToolStripMenuItem";
+			this->editToolStripMenuItem->Size = System::Drawing::Size(39, 20);
+			this->editToolStripMenuItem->Text = L"Edit";
+			// 
+			// copyToolStripMenuItem
+			// 
+			this->copyToolStripMenuItem->Name = L"copyToolStripMenuItem";
+			this->copyToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->copyToolStripMenuItem->Text = L"Copy";
+			this->copyToolStripMenuItem->Click += gcnew System::EventHandler(this, &CalculatorHome::copyToolStripMenuItem_Click);
+			// 
+			// pasteToolStripMenuItem
+			// 
+			this->pasteToolStripMenuItem->Name = L"pasteToolStripMenuItem";
+			this->pasteToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->pasteToolStripMenuItem->Text = L"Paste";
+			this->pasteToolStripMenuItem->Click += gcnew System::EventHandler(this, &CalculatorHome::pasteToolStripMenuItem_Click);
+			// 
+			// cutToolStripMenuItem
+			// 
+			this->cutToolStripMenuItem->Name = L"cutToolStripMenuItem";
+			this->cutToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->cutToolStripMenuItem->Text = L"Cut";
+			this->cutToolStripMenuItem->Click += gcnew System::EventHandler(this, &CalculatorHome::cutToolStripMenuItem_Click);
+			// 
 			// CalculatorHome
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -374,10 +461,14 @@ namespace winFormsCalculator
 			this->Controls->Add(this->DivideButton);
 			this->Controls->Add(this->DeleteButton);
 			this->Controls->Add(this->textBox1);
+			this->Controls->Add(this->menuStrip1);
+			this->MainMenuStrip = this->menuStrip1;
 			this->Name = L"CalculatorHome";
 			this->Text = L"CalculatorHome";
 			this->Shown += gcnew System::EventHandler(this, &CalculatorHome::CalculatorHome_Shown);
 			this->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &CalculatorHome::CalculatorHome_KeyDown);
+			this->menuStrip1->ResumeLayout(false);
+			this->menuStrip1->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -427,6 +518,46 @@ namespace winFormsCalculator
 		void focusTextBox()
 		{
 			textBox1->Focus();
+		}
+
+		bool checkPasteRequirements()
+		{
+			//Checks for letter"s in the clipboard
+			if (Clipboard::ContainsText())
+			{
+				TextBox tempBox;
+				tempBox.Text = Clipboard::GetText();
+
+				//parse text for letters
+				int tempBoxLength = tempBox.Text->Length;
+				int decimalCount = 0;
+
+
+
+				for (int index = 0; index < tempBoxLength; index++)
+				{
+					char letterAtIndex = tempBox.Text[index];
+					if (letterAtIndex < 48 && letterAtIndex != 46 ||
+						letterAtIndex > 57 && letterAtIndex != 46)
+					{
+						MessageBox::Show(" clipboard cannot contain letters\n or special chars");
+						return false; //is not a digit or decimal
+
+					}
+					if (tempBox.Text[index] == 46)
+					{
+						decimalCount++;
+					}
+					if (decimalCount > 1)
+					{
+						MessageBox::Show(" clipboard cannot contain more than one decimal");
+						return false; //more than one decimal
+
+					}
+
+				}
+				return true;
+			}
 		}
 
 
@@ -749,6 +880,12 @@ namespace winFormsCalculator
 			clearFocus();
 		}
 
+		System::Void textBox1_MouseClick(System::Object^ sender,
+			System::Windows::Forms::MouseEventArgs^ e)
+		{
+			clearFocus();
+		}
+
 		System::Void CalculatorHome_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e)
 		{
 			//Check what key was pressed
@@ -809,7 +946,7 @@ namespace winFormsCalculator
 					Num9Button->PerformClick();
 					break;
 				}
-				case (int)Keys::Add:			//Dont know how to handle Shift + Key yet
+				case (int)Keys::Add: //Dont know how to handle Shift + Key yet
 				{
 					PlusButton->PerformClick();
 					break;
@@ -846,6 +983,46 @@ namespace winFormsCalculator
 			}
 		}
 
-	
+
+
+
+
+		/************************************************************************
+							Section for Menu Strip Items
+
+			- 
+			- 
+		************************************************************************/
+		System::Void exitToolStripMenuItem1_Click(System::Object^ sender, System::EventArgs^ e) 
+		{
+			Application::Exit();
+		}
+
+		System::Void copyToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) 
+		{
+			textBox1->SelectAll();
+			textBox1->Copy();
+		}
+		
+		System::Void cutToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) 
+		{
+			textBox1->SelectAll();
+			textBox1->Cut();
+		}
+
+	    System::Void pasteToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) 
+		{
+			//check to make sure there are no letters and no more than one decimal
+			if (checkPasteRequirements())
+			{
+				textBox1->SelectAll();
+				textBox1->Paste();
+			}
+		}
+		
+		System::Void exitToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) 
+		{
+			MessageBox::Show("Not yet implemented");
+		}
 	};//end header
 }//end namespace

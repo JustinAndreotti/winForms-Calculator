@@ -1,7 +1,7 @@
 -------------------------------------------
-+										  +
-+		Win Forms Calculator Test         +
-+										  +
++										                      +
++		Win Forms Calculator Test             +
++										                      +
 -------------------------------------------
 
 To download this small app you can either download the whole project from the github

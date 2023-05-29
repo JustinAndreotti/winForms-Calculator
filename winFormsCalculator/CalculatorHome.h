@@ -394,14 +394,14 @@ namespace winFormsCalculator
 			// exitToolStripMenuItem
 			// 
 			this->exitToolStripMenuItem->Name = L"exitToolStripMenuItem";
-			this->exitToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->exitToolStripMenuItem->Size = System::Drawing::Size(99, 22);
 			this->exitToolStripMenuItem->Text = L"Help";
 			this->exitToolStripMenuItem->Click += gcnew System::EventHandler(this, &CalculatorHome::exitToolStripMenuItem_Click);
 			// 
 			// exitToolStripMenuItem1
 			// 
 			this->exitToolStripMenuItem1->Name = L"exitToolStripMenuItem1";
-			this->exitToolStripMenuItem1->Size = System::Drawing::Size(180, 22);
+			this->exitToolStripMenuItem1->Size = System::Drawing::Size(99, 22);
 			this->exitToolStripMenuItem1->Text = L"Exit";
 			this->exitToolStripMenuItem1->Click += gcnew System::EventHandler(this, &CalculatorHome::exitToolStripMenuItem1_Click);
 			// 
@@ -418,21 +418,21 @@ namespace winFormsCalculator
 			// copyToolStripMenuItem
 			// 
 			this->copyToolStripMenuItem->Name = L"copyToolStripMenuItem";
-			this->copyToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->copyToolStripMenuItem->Size = System::Drawing::Size(102, 22);
 			this->copyToolStripMenuItem->Text = L"Copy";
 			this->copyToolStripMenuItem->Click += gcnew System::EventHandler(this, &CalculatorHome::copyToolStripMenuItem_Click);
 			// 
 			// pasteToolStripMenuItem
 			// 
 			this->pasteToolStripMenuItem->Name = L"pasteToolStripMenuItem";
-			this->pasteToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->pasteToolStripMenuItem->Size = System::Drawing::Size(102, 22);
 			this->pasteToolStripMenuItem->Text = L"Paste";
 			this->pasteToolStripMenuItem->Click += gcnew System::EventHandler(this, &CalculatorHome::pasteToolStripMenuItem_Click);
 			// 
 			// cutToolStripMenuItem
 			// 
 			this->cutToolStripMenuItem->Name = L"cutToolStripMenuItem";
-			this->cutToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->cutToolStripMenuItem->Size = System::Drawing::Size(102, 22);
 			this->cutToolStripMenuItem->Text = L"Cut";
 			this->cutToolStripMenuItem->Click += gcnew System::EventHandler(this, &CalculatorHome::cutToolStripMenuItem_Click);
 			// 
@@ -440,6 +440,7 @@ namespace winFormsCalculator
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::SystemColors::Control;
 			this->ClientSize = System::Drawing::Size(322, 457);
 			this->Controls->Add(this->clearButton);
 			this->Controls->Add(this->OperatorLabel);
@@ -464,7 +465,7 @@ namespace winFormsCalculator
 			this->Controls->Add(this->menuStrip1);
 			this->MainMenuStrip = this->menuStrip1;
 			this->Name = L"CalculatorHome";
-			this->Text = L"CalculatorHome";
+			this->Text = L"Calculator";
 			this->Shown += gcnew System::EventHandler(this, &CalculatorHome::CalculatorHome_Shown);
 			this->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &CalculatorHome::CalculatorHome_KeyDown);
 			this->menuStrip1->ResumeLayout(false);
@@ -540,7 +541,8 @@ namespace winFormsCalculator
 					if (letterAtIndex < 48 && letterAtIndex != 46 ||
 						letterAtIndex > 57 && letterAtIndex != 46)
 					{
-						MessageBox::Show(" clipboard cannot contain letters\n or special chars");
+						MessageBox::Show(" clipboard cannot contain letters\n or special chars",
+										 "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 						return false; //is not a digit or decimal
 
 					}
@@ -550,7 +552,8 @@ namespace winFormsCalculator
 					}
 					if (decimalCount > 1)
 					{
-						MessageBox::Show(" clipboard cannot contain more than one decimal");
+						MessageBox::Show(" clipboard cannot contain more than one decimal",
+										 "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 						return false; //more than one decimal
 
 					}

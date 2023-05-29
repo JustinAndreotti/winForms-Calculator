@@ -37,9 +37,7 @@ namespace winFormsCalculator
 			}
 		private: System::Windows::Forms::TextBox^ textBox1;
 		private: System::Windows::Forms::Button^ DeleteButton;
-
 		private: System::Windows::Forms::Button^ DivideButton;
-
 		private: System::Windows::Forms::Button^ MultiplyButton;
 		private: System::Windows::Forms::Button^ SubtractButton;
 		private: System::Windows::Forms::Button^ Num1Button;
@@ -52,38 +50,19 @@ namespace winFormsCalculator
 		private: System::Windows::Forms::Button^ Num8Button;
 		private: System::Windows::Forms::Button^ Num9Button;
 		private: System::Windows::Forms::Button^ DecimalButton;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 		private: System::Windows::Forms::Button^ Num0Button;
 		private: System::Windows::Forms::Button^ PlusButton;
-
-
 		private: System::Windows::Forms::Button^ EnterButton;
-
-	private: System::Windows::Forms::Label^ OperatorLabel;
-	private: System::Windows::Forms::Button^ clearButton;
-	private: System::Windows::Forms::MenuStrip^ menuStrip1;
-	private: System::Windows::Forms::ToolStripMenuItem^ fileToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^ exitToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^ editToolStripMenuItem;
-
-
-	private: System::Windows::Forms::ToolStripMenuItem^ copyToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^ pasteToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^ cutToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^ exitToolStripMenuItem1;
+		private: System::Windows::Forms::Label^ OperatorLabel;
+		private: System::Windows::Forms::Button^ clearButton;
+		private: System::Windows::Forms::MenuStrip^ menuStrip1;
+		private: System::Windows::Forms::ToolStripMenuItem^ fileToolStripMenuItem;
+		private: System::Windows::Forms::ToolStripMenuItem^ exitToolStripMenuItem;
+		private: System::Windows::Forms::ToolStripMenuItem^ editToolStripMenuItem;
+		private: System::Windows::Forms::ToolStripMenuItem^ copyToolStripMenuItem;
+		private: System::Windows::Forms::ToolStripMenuItem^ pasteToolStripMenuItem;
+		private: System::Windows::Forms::ToolStripMenuItem^ cutToolStripMenuItem;
+		private: System::Windows::Forms::ToolStripMenuItem^ exitToolStripMenuItem1;
 
 
 

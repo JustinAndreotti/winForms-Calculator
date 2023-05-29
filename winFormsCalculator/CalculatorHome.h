@@ -1025,7 +1025,9 @@ namespace winFormsCalculator
 		
 		System::Void exitToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) 
 		{
-			MessageBox::Show("Not yet implemented");
+			// Send users to the github README.txt 
+			System::Diagnostics::Process::Start
+			("https://github.com/JustinAndreotti/winForms-Calculator/blob/master/README.txt.txt");
 		}
 	};//end header
 }//end namespace
